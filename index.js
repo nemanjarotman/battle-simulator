@@ -1,3 +1,5 @@
+const n = require('./config');
+
 class Unit {
   constructor(name) {
     this.name = name;
@@ -7,9 +9,9 @@ class Unit {
     this.criticalChance = 10 - this.health / 10;
   }
 
-  attack(unit){
+  attack(unit) {
     if (this.criticalChance >= Math.random() * 101) 
-      unit.health = unit.health - this.damage * 2;
+      unit.health = unit.health - this.damage * n;
     unit.health = unit.health - this.damage;
 
     unit.rechargeTime = 1000 * unit.health / 100;
@@ -39,7 +41,7 @@ const fight = (n) => {
 
 let count = units.length;
 
-let intervals = units.map((interval, index) => {
+units.map((interval, index) => {
   setInterval(() => {
     if (units[index].health <= 0 || count === 1) {
       count--;
