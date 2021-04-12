@@ -40,7 +40,7 @@ const fight = (n) => {
 let count = units.length;
 
 let intervals = units.map((interval, index) => {
-   setInterval(() => {
+  setInterval(() => {
     if (units[index].health <= 0 || count === 1) {
       count--;
       clearInterval(interval);
